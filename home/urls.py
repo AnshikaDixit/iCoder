@@ -3,8 +3,9 @@ from django.urls import path, include
 from home import views
 
 urlpatterns = [
-    path('contact/', views.contact, name="contact"),
-    path('about/', views.about, name="about"),
     path('', views.home, name="home"),
-    path('search/', views.search, name="search"),
+    path('contact', views.contact, name="contact"),
+    path('about', views.about, name="about"),
+    path('search', views.search, name="search"),
+    path('signup', views.handleSignUp, name="handleSignUp"),
 ]
