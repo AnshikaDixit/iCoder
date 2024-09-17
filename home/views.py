@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User 
 from django.contrib.auth  import authenticate,  login, logout
 from blog.models import Post
+
 def home(request): 
     return render(request, "home/home.html")
 
@@ -69,7 +70,7 @@ def handleSignUp(request):
         return HttpResponse("404 - Not found")
 
 
-def handeLogin(request):
+def handleLogin(request):
     if request.method=="POST":
         # Get the post parameters
         loginusername=request.POST['loginusername']
@@ -86,7 +87,8 @@ def handeLogin(request):
 
     return HttpResponse("404- Not found")
 
-def handelLogout(request):
+
+def handleLogout(request):
     logout(request)
     messages.success(request, "Successfully logged out")
     return redirect('home')
